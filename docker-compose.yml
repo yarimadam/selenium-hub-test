@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  php:
+    image: php:7.3-fpm-stretch
+    volumes:
+      - ./:/var/www/html
+
+  hub:
+    image: selenium/hub:3.141.59-iron
+
+  chrome:
+    image: selenium/node-chrome:3.141.59-iron
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      HUB_HOST: hub
+      HUB_PORT: 4444
+    deploy:
+      replicas: 10
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'

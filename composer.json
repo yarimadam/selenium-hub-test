@@ -1,0 +1,12 @@
+{
+    "name": "halil/selenium-hub-test",
+    "authors": [
+        {
+            "name": "Halil Tuncay Üner",
+            "email": "tuncayuner@gmail.com"
+        }
+    ],
+    "require": {
+        "facebook/webdriver": "^1.6"
+    }
+}
